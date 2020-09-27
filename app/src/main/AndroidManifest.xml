@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNewAddress"></activity>
+        <activity android:name=".ShowAddressDetails"></activity>
+        <activity android:name=".EditAddressDetails" />
+        <activity android:name=".AddNewAddress" />
         <activity android:name=".loging" />
         <activity android:name=".Register" />
         <activity android:name=".Entering" />
