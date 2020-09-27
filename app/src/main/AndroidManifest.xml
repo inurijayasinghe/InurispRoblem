@@ -10,17 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AddNewAddress"></activity>
-        <activity android:name=".loging" />
-        <activity android:name=".Register" />
-        <activity android:name=".Entering" />
-        <activity android:name=".Item_Display" />
-        <activity android:name=".Cart" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".loging">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Entering" >
+
+
+        </activity>
+        <activity android:name=".Item_Display" />
+        <activity android:name=".Cart" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

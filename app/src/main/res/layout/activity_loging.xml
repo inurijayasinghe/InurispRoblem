@@ -13,7 +13,8 @@
         android:background="@drawable/register"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout_editor_absoluteX="-5dp">
+        tools:layout_editor_absoluteX="-5dp"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/logMail"

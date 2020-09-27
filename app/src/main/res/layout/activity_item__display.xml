@@ -11,11 +11,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="658dp"
+        android:layout_height="683dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="-2dp"
-        android:layout_marginBottom="75dp">
+        android:layout_marginBottom="50dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -133,38 +133,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="67dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#FFFFFF"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/homeImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/home" />
+            app:srcCompat="@drawable/ic_baseline_home" />
 
-        <Button
-            android:id="@+id/btnCat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/cat" />
+            app:srcCompat="@drawable/ic_baseline_category_24" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/profile" />
+            app:srcCompat="@drawable/ic_baseline_account" />
 
-        <Button
-            android:id="@+id/btnCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/Cart" />
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
     </LinearLayout>
 </RelativeLayout>

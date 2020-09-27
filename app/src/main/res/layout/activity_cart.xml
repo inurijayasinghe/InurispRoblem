@@ -5,76 +5,104 @@
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@android:color/holo_green_light">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
-        android:layout_height="546dp"
+        android:layout_height="561dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="120dp"
         android:background="@android:color/background_light" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="307dp"
-        android:layout_height="wrap_content"
+        android:layout_width="298dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/search_bar_style"
+        android:drawableStart="@drawable/ic_baseline_search_24"
         android:ems="10"
+        android:hint="@string/search_msg"
         android:inputType="textPersonName" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:text="@string/search" />
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/search_button"
+        android:text="@string/search"
+        android:textColor="#FFFFFF" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="51dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
-        android:background="@android:color/holo_green_light"
+        android:background="@android:color/background_light"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/homeImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/home" />
+            app:srcCompat="@drawable/ic_baseline_home" />
 
-        <Button
-            android:id="@+id/btnCat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/cat" />
+            app:srcCompat="@drawable/ic_baseline_category_24" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/profile" />
+            app:srcCompat="@drawable/ic_baseline_account" />
 
-        <Button
-            android:id="@+id/btnCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/Cart" />
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="67dp">
+        android:layout_marginBottom="53dp"
+        android:background="@android:color/holo_green_dark">
 
+        <TextView
+            android:id="@+id/TotalMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="@string/total"
+            android:textColor="#FFFDFD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/PriceView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:textColor="#F4EFEF"
+            app:layout_constraintBaseline_toBaselineOf="@+id/TotalMsg"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
