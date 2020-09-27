@@ -31,6 +31,7 @@ public class Cart extends AppCompatActivity {
     private List<TheCart> cartList;
     DatabaseReference dbRef;
     ImageView home;
+    FirebaseAuth firebaseAuth;
     TextView total;
     double sum;
 
@@ -38,7 +39,7 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-
+firebaseAuth=FirebaseAuth.getInstance();
         total=findViewById(R.id.PriceView);
         home=findViewById(R.id.homeImage);
         recyclerView = findViewById(R.id.recyclerView2);
@@ -47,7 +48,7 @@ public class Cart extends AppCompatActivity {
         cartList = new ArrayList<>();
         adapter = new CartAdapter(this, cartList);
         recyclerView.setAdapter(adapter);
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Cart");
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child(firebaseAuth.getCurrentUser().getUid());
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

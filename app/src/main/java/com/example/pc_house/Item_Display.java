@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,6 +23,7 @@ public class Item_Display extends AppCompatActivity {
     TextView title,price,qty;
     ImageView image;
     Button add,plus,minus;
+    FirebaseAuth fAuth;
     int val1=0;
 
     DatabaseReference dbRef;
@@ -38,6 +40,7 @@ public class Item_Display extends AppCompatActivity {
         qty=findViewById(R.id.text_qty);
         plus=findViewById(R.id.plus);
         minus=findViewById(R.id.minus);
+        fAuth=FirebaseAuth.getInstance();
 
 
 
@@ -88,7 +91,7 @@ public class Item_Display extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef= FirebaseDatabase.getInstance().getReference().child("Cart");
+                dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child(String.valueOf(fAuth.getCurrentUser().getUid()));
                 TheCart cart=new TheCart();
                 cart.setID(i1.getID());
                 cart.setName(i1.getName());

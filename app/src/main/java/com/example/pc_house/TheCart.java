@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 public class TheCart  implements Parcelable {
 
+
+    private String userID;
     private String ID;
     private String Name;
     private double Price;
@@ -15,25 +17,12 @@ public class TheCart  implements Parcelable {
     }
 
     protected TheCart(Parcel in) {
+        userID = in.readString();
         ID = in.readString();
         Name = in.readString();
         Price = in.readDouble();
         Qty = in.readInt();
         url = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(ID);
-        dest.writeString(Name);
-        dest.writeDouble(Price);
-        dest.writeInt(Qty);
-        dest.writeString(url);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 
     public static final Creator<TheCart> CREATOR = new Creator<TheCart>() {
@@ -47,6 +36,14 @@ public class TheCart  implements Parcelable {
             return new TheCart[size];
         }
     };
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public String getID() {
         return ID;
@@ -86,5 +83,20 @@ public class TheCart  implements Parcelable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(userID);
+        parcel.writeString(ID);
+        parcel.writeString(Name);
+        parcel.writeDouble(Price);
+        parcel.writeInt(Qty);
+        parcel.writeString(url);
     }
 }

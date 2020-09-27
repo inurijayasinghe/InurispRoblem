@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private Context mCtx;
     private List<TheCart> cartList;
     DatabaseReference dbRef;
+    FirebaseAuth fAuth;
 
 
 
@@ -47,6 +49,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull final CartViewHolder holder, int position) {
         final TheCart cart=cartList.get(position);
+        fAuth=FirebaseAuth.getInstance();
         Glide.with(mCtx).load(cart.getUrl()).into(holder.imageView1);
         holder.textViewName1.setText("Name: " + cart.getName());
         holder.textViewPrice1.setText("Price: "+cart.getPrice());
@@ -61,7 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     public void deleteItem(String id){
-        dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(id);
+        dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(fAuth.getCurrentUser().getUid()).child(id);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
