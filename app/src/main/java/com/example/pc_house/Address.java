@@ -11,6 +11,7 @@ public class Address implements Parcelable {
     private String Province;
     private int postalCode;
     private int Telephone;
+    //test test test test
 
 
     public Address() {
