@@ -53,4 +53,8 @@
     <string name="skip">Skip</string>
     <string name="total">Total Price</string>
     <string name="Log_titile">Login Here..</string>
+    <string name="allgoin">Already have an Account ? Login</string>
+    <string name="jnow">Join Now</string>
+    <string name="logHeader">Login</string>
+    <string name="log_pass">Enter Your Password</string>
 </resources>

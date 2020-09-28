@@ -20,11 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 
-public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressViewHolder> {
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHolder> {
 
 
     private Context mCtx;
-    private List<Address> addList;
+    private List<Orders> addList;
     private OnItemClickListener mLister;
 
     public interface OnItemClickListener {
@@ -37,7 +37,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
     }
 
-    public AddressAdapter( Context mCtx, List<Address> addList) {
+    public OrderAdapter(Context mCtx, List<Orders> addList) {
 
         this.mCtx = mCtx;
         this.addList = addList;
@@ -47,29 +47,29 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
     @NonNull
     @Override
-    public AddressViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.recycleview_address, parent, false);
-        return new AddressViewHolder(view);
+    public OrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.order_item, parent, false);
+        return new OrdersViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final AddressViewHolder holder, final int position) {
-        final Address add =addList.get(position);
-        holder.a.setText(add.getStreet_Address());
-        holder.b.setText(add.getCty());
-        holder.c.setText(add.getProvince());
-        holder.d.setText(add.getCountry());
-        holder.e.setText(String.valueOf(add.getPostalCode()));
-        holder.f.setText(String.valueOf(add.getTelephone()));
+    public void onBindViewHolder(@NonNull final OrdersViewHolder holder, final int position) {
+        final Orders add =addList.get(position);
+        holder.aa.setText(add.getPrice());
+        holder.bb.setText(add.getId());
+        holder.cc.setText(add.getName());
+        holder.dd.setText(add.getQty());
+        holder.ee.setText(String.valueOf(add.getUrl()));
+
 
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //pass object using intent
-                Intent intent = new Intent(holder.btn.getContext(),EditAddressDetails.class);
-                Address add= addList.get(position);
-                intent.putExtra("addrr",add);
+                Intent intent = new Intent(holder.btn.getContext(),MainActivity.class);
+                Orders add= addList.get(position);
+                intent.putExtra("id",add);
                 holder.btn.getContext().startActivity(intent);
                 //end pass object intent
 
@@ -79,12 +79,12 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
         holder.btndel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(String.valueOf(add.getAddressId()));
+                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Item").child(String.valueOf(add.getId()));
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.btndel.getContext(),ShowAddressDetails.class);
+                        Intent intent=new Intent(holder.btndel.getContext(),MainActivity.class);
                         holder.btndel.getContext().startActivity(intent);
 
                     }
@@ -108,20 +108,20 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
 
 
-    class AddressViewHolder extends RecyclerView.ViewHolder {
+    class OrdersViewHolder extends RecyclerView.ViewHolder {
 
-        TextView a,b,c,d,e,f;
+        TextView aa,bb,cc,dd,ee;
         ImageButton btn,btndel;
 
 
-        public AddressViewHolder(@NonNull View itemView) {
+        public OrdersViewHolder(@NonNull View itemView) {
             super(itemView);
-            a = itemView.findViewById(R.id.id);
-            b = itemView.findViewById(R.id.name);
-            c = itemView.findViewById(R.id.price);
-            d = itemView.findViewById(R.id.qty);
-            e = itemView.findViewById(R.id.url);
-            f = itemView.findViewById(R.id.telephoner);
+            aa = itemView.findViewById(R.id.id);
+            bb = itemView.findViewById(R.id.name);
+            cc = itemView.findViewById(R.id.price);
+            dd = itemView.findViewById(R.id.qty);
+            ee = itemView.findViewById(R.id.url);
+
             btn=itemView.findViewById(R.id.update);
             btndel=itemView.findViewById(R.id.delete);
 
