@@ -1,18 +1,56 @@
 package com.example.pc_house;
 
-public class Orders {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    String name;
-    String details;
-    String imageurl;
+public class Orders implements Parcelable {
+    private int price;
+    private String id;
+    private String name;
+    private String qty;
+    private String url;
+
+    //test test test test
+
 
     public Orders() {
     }
 
-    public Orders(String name, String details, String imageurl) {
-        this.name = name;
-        this.details = details;
-        this.imageurl = imageurl;
+    protected Orders(Parcel in) {
+        price = in.readInt();
+        id = in.readString();
+        name = in.readString();
+        qty = in.readString();
+        url = in.readString();
+
+    }
+
+    public static final Creator<Address> CREATOR = new Creator<Address>() {
+        @Override
+        public Address createFromParcel(Parcel in) {
+            return new Address(in);
+        }
+
+        @Override
+        public Address[] newArray(int size) {
+            return new Address[size];
+        }
+    };
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -23,19 +61,40 @@ public class Orders {
         this.name = name;
     }
 
-    public String getDetails() {
-        return details;
+    public String getQty() {
+        return qty;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setQty(String qty) {
+        this.qty = qty;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public static Creator<Address> getCREATOR() {
+        return CREATOR;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(price);
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(qty);
+        dest.writeString(url);
+
     }
 }
+
+

@@ -1,64 +1,84 @@
 package com.example.pc_house;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyOrders extends AppCompatActivity {
 
-    //Widgets
-
-    RecyclerView recycleView;
-
-    //Firebase
-    private DatabaseReference myRef;
-
-    //Variables
-    private ArrayList<Orders> orderList;
-
+    RecyclerView recyclerView;
+    OrderAdapter adapter;
+    List<Orders> orderList;
+    DatabaseReference dbRef;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
 
-        recycleView = findViewById(R.id.recycleView03);
-        LinearLayoutManager layeroutManager = new LinearLayoutManager(this);
-        recycleView.setLayoutManager(layeroutManager);
-        recycleView.setHasFixedSize(true);
-
-        myRef = FirebaseDatabase.getInstance().getReference();
-
-        //Arraylist
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         orderList = new ArrayList<>();
-
-        Clearall();
-
-        GetDataFromFireBase();
-
+        adapter = new OrderAdapter(this,orderList);
+        recyclerView.setAdapter(adapter);
+        btn = findViewById(R.id.addNew);
 
 
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Item");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.hasChildren()){
+                    for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+
+                        Orders add=dataSnapshot1.getValue(Orders.class);
+                        orderList.add(add);
+
+                    }
+                    adapter.notifyDataSetChanged();
+
+                }
+                else{}
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MyOrders.this,MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
-    }
 
-    private void GetDataFromFireBase() {
-
-
-    }
-
-    private void Clearall(){
-        if(orderList!=null){
-            orderList.clear();
-        }
-        orderList = new ArrayList<>();
 
     }
 }
