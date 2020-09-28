@@ -79,9 +79,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="41dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="80dp"
         android:background="@android:color/holo_green_dark">
 
         <TextView
@@ -104,6 +104,14 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/TotalMsg"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/cartCheck"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:text="@string/checkout" />
 
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull final CartViewHolder holder, int position) {
         final TheCart cart=cartList.get(position);
+
         fAuth=FirebaseAuth.getInstance();
         Glide.with(mCtx).load(cart.getUrl()).into(holder.imageView1);
         holder.textViewName1.setText("Name: " + cart.getName());
@@ -59,6 +61,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 deleteItem(cart.getID());
                 Intent intent=new Intent(holder.delete.getContext(),Cart.class);
                 holder.delete.getContext().startActivity(intent);
+            }
+        });
+        holder.numberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(fAuth.getCurrentUser().getUid()).child(cart.getID());
+                cart.setQty(Integer.parseInt("6"));
+                dbRef.setValue(cart);
+
             }
         });
     }
@@ -88,12 +100,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         TextView textViewName1,textViewPrice1;
         ImageView imageView1;
         Button delete;
+        ElegantNumberButton numberButton;
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView1=itemView.findViewById(R.id.image_view_id1);
             textViewName1=itemView.findViewById(R.id.text_view_name1);
             textViewPrice1=itemView.findViewById(R.id.text_view_price1);
             delete=itemView.findViewById(R.id.btnDelete);
+            numberButton=itemView.findViewById(R.id.quantity_btn);
+
         }
     }
 }

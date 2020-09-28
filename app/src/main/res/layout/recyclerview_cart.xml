@@ -57,30 +57,43 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text_view_name1" />
 
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/common_google_signin_btn_text_dark_pressed"
-                    android:text="@string/Edit"
-                    android:textColor="#2196F3"
-                    app:layout_constraintEnd_toStartOf="@+id/btnDelete"
-                    app:layout_constraintHorizontal_bias="0.5"
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    android:layout_width="95dp"
+                    android:layout_height="46dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#FFFFFF"
+
+                    android:elevation="6dp"
+                    android:gravity="center"
+                    app:finalNumber="10"
+                    app:initialNumber="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_view_price1" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_price1"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:textColor="#ffffff"
+                    app:textSize="6dp">
+
+                </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
 
                 <Button
                     android:id="@+id/btnDelete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="84dp"
+                    android:layout_height="43dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@color/common_google_signin_btn_text_dark_default"
                     android:text="@string/Remove"
                     android:textColor="#C60F0F"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/button5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button5" />
+                    app:layout_constraintHorizontal_bias="0.714"
+                    app:layout_constraintStart_toEndOf="@+id/quantity_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_price1"
+                    app:layout_constraintVertical_bias="0.739" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
