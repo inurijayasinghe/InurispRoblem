@@ -1,4 +1,4 @@
-package com.example.pc_house;
+/**package com.example.pc_house;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,3 +82,4 @@ public class MyOrders extends AppCompatActivity {
 
     }
 }
+ **/

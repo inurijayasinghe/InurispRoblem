@@ -1,4 +1,4 @@
-package com.example.pc_house;
+/**package com.example.pc_house;
 
 import android.content.Context;
 import android.content.Intent;
@@ -56,11 +56,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHo
     @Override
     public void onBindViewHolder(@NonNull final OrdersViewHolder holder, final int position) {
         final Orders add =addList.get(position);
-        holder.aa.setText(add.getPrice());
-        holder.bb.setText(add.getId());
-        holder.cc.setText(add.getName());
-        holder.dd.setText(add.getQty());
-        holder.ee.setText(String.valueOf(add.getUrl()));
+       // holder.aa.setText(add.getPrice());
+      //  holder.bb.setText(add.getId());
+      //  holder.cc.setText(add.getName());
+       // holder.dd.setText(add.getQty());
+        //holder.ee.setText(String.valueOf(add.getUrl()));
 
 
         holder.btn.setOnClickListener(new View.OnClickListener() {
@@ -142,3 +142,4 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHo
     }
 }
 
+**/

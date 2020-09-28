@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,16 +64,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 holder.delete.getContext().startActivity(intent);
             }
         });
-        holder.numberButton.setOnClickListener(new View.OnClickListener() {
+        holder.numberButton.setNumber(String.valueOf(cart.getQty()));
+        holder.numberButton.setOnClickListener(new ElegantNumberButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(fAuth.getCurrentUser().getUid()).child(cart.getID());
-                cart.setQty(Integer.parseInt("6"));
+                dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(fAuth.getCurrentUser().getUid()).child(String.valueOf(cart.getID()));
+                double Unitprice=cart.getPrice()/cart.getQty();
+                cart.setQty(Integer.parseInt(holder.numberButton.getNumber()));
+                cart.setPrice(cart.getQty()*Unitprice);
                 dbRef.setValue(cart);
-
+Toast.makeText(mCtx,"elegent clicked",Toast.LENGTH_SHORT).show();
+Intent intent=new Intent(holder.numberButton.getContext(),Cart.class);
+holder.numberButton.getContext().startActivity(intent);
             }
         });
+
     }
 
     public void deleteItem(String id){

@@ -11,11 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EditAddressDetails"></activity>
         <activity android:name=".ShowAddressDetails">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ShowPaymentDetails" />
         <activity android:name=".EditPaymentDetails" />
@@ -23,7 +19,13 @@
         <activity android:name=".AddNewAddress" />
         <activity android:name=".loging" />
         <activity android:name=".Register" />
-        <activity android:name=".Entering" />
+        <activity android:name=".Entering" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
         <activity android:name=".MainActivity"></activity>
