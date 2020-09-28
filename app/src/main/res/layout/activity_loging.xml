@@ -41,7 +41,7 @@
             android:layout_marginEnd="33dp"
             android:layout_marginBottom="110dp"
             android:ems="10"
-            android:hint="@string/Reg_con"
+            android:hint="@string/log_pass"
             android:inputType="textPersonName" />
     </RelativeLayout>
 
@@ -50,7 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:text="@string/logHeader"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
