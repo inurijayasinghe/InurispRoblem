@@ -13,9 +13,7 @@
         <activity android:name=".ShowAddressDetails">
 
         </activity>
-        <activity android:name=".ShowPaymentDetails" >
-
-        </activity>
+        <activity android:name=".ShowPaymentDetails" />
         <activity android:name=".EditPaymentDetails" />
         <activity android:name=".AddNewPayment" />
         <activity android:name=".AddNewAddress" />
@@ -24,9 +22,6 @@
         <activity android:name=".Entering" />
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
-        <activity android:name=".MyOrders" >
-
-        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
