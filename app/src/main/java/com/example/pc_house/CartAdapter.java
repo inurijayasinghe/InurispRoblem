@@ -73,9 +73,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 cart.setQty(Integer.parseInt(holder.numberButton.getNumber()));
                 cart.setPrice(cart.getQty()*Unitprice);
                 dbRef.setValue(cart);
-Toast.makeText(mCtx,"elegent clicked",Toast.LENGTH_SHORT).show();
-Intent intent=new Intent(holder.numberButton.getContext(),Cart.class);
-holder.numberButton.getContext().startActivity(intent);
+                Intent intent=new Intent(holder.numberButton.getContext(),Cart.class);
+                holder.numberButton.getContext().startActivity(intent);
             }
         });
 

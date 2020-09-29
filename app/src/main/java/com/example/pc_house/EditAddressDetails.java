@@ -69,6 +69,7 @@ public class EditAddressDetails extends AppCompatActivity {
 
                             add.setCountry(editCountry.getText().toString().trim());
                             add.setStreet_Address(editStreet.getText().toString().trim());
+
                             add.setCty(editCity.getText().toString().trim());
                             add.setProvince(editProvince.getText().toString().trim());
                             add.setPostalCode(Integer.parseInt(editCode.getText().toString().trim()));
