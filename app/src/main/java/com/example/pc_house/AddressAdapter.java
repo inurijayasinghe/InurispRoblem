@@ -116,11 +116,11 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
         public AddressViewHolder(@NonNull View itemView) {
             super(itemView);
-            a = itemView.findViewById(R.id.id);
-            b = itemView.findViewById(R.id.name);
-            c = itemView.findViewById(R.id.price);
-            d = itemView.findViewById(R.id.qty);
-            e = itemView.findViewById(R.id.url);
+            a = itemView.findViewById(R.id.streetr);
+            b = itemView.findViewById(R.id.cityr);
+            c = itemView.findViewById(R.id.provincer);
+            d = itemView.findViewById(R.id.countryr);
+            e = itemView.findViewById(R.id.postalr);
             f = itemView.findViewById(R.id.telephoner);
             btn=itemView.findViewById(R.id.update);
             btndel=itemView.findViewById(R.id.delete);
