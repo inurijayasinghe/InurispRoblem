@@ -104,7 +104,7 @@ public class Register extends AppCompatActivity {
 
 
                             Toast.makeText(getApplicationContext(),"registration successful",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(),AddNewAddress.class));
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"registration unsuccessful",Toast.LENGTH_SHORT).show();

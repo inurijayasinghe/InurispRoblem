@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,8 +27,9 @@ public class AddNewAddress extends AppCompatActivity {
 
     private static ArrayList list;
     EditText addCountry,addStreet,addCity,addProvince,addCode,addNumber;
-    Button btnConfirm;
+    Button btnConfirm,btnSkip;
     DatabaseReference dbRef;
+    FirebaseAuth firebaseAuth;
     Address add;
 
 
@@ -43,10 +45,12 @@ public class AddNewAddress extends AppCompatActivity {
         addCode = findViewById(R.id.code);
         addNumber = findViewById(R.id.phone);
         btnConfirm = findViewById(R.id.confirmAddress);
+        btnSkip = findViewById(R.id.skipAdd);
+        firebaseAuth=FirebaseAuth.getInstance();
 
 
         add = new Address();
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details");
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(firebaseAuth.getCurrentUser().getUid());
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -70,8 +74,14 @@ public class AddNewAddress extends AppCompatActivity {
 
             }
         });
+        btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
+            }
+        });
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +149,7 @@ public class AddNewAddress extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Successfully Added !!!", Toast.LENGTH_SHORT).show();
                     clearControls();
-                    Intent intent = new Intent(AddNewAddress.this, ShowAddressDetails.class);
+                    Intent intent = new Intent(AddNewAddress.this, MainActivity.class);
                     startActivity(intent);
 
                 }catch(NumberFormatException e){

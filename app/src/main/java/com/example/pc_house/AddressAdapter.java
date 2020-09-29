@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +25,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
 
     private Context mCtx;
+    FirebaseAuth firebaseAuth;
     private List<Address> addList;
     private OnItemClickListener mLister;
 
@@ -56,6 +58,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
     @Override
     public void onBindViewHolder(@NonNull final AddressViewHolder holder, final int position) {
         final Address add =addList.get(position);
+        firebaseAuth=FirebaseAuth.getInstance();
         holder.a.setText(add.getStreet_Address());
         holder.b.setText(add.getCty());
         holder.c.setText(add.getProvince());
@@ -79,7 +82,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
         holder.btndel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(String.valueOf(add.getAddressId()));
+                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(firebaseAuth.getCurrentUser().getUid()).child(String.valueOf(add.getAddressId()));
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
