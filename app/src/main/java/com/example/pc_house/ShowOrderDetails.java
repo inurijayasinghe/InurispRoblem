@@ -1,4 +1,5 @@
-/**package com.example.pc_house;
+package com.example.pc_house;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,29 +22,28 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyOrders extends AppCompatActivity {
+public class ShowOrderDetails extends AppCompatActivity {
 
     RecyclerView recyclerView;
     OrderAdapter adapter;
-    List<Orders> orderList;
+    List<Order> orderList;
     DatabaseReference dbRef;
     Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_orders);
+        setContentView(R.layout.activity_show_order_details);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewOrd);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         orderList = new ArrayList<>();
-        adapter = new OrderAdapter(this,orderList);
+        adapter = new OrderAdapter( this, orderList);
         recyclerView.setAdapter(adapter);
         btn = findViewById(R.id.addNew);
 
-
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Item");
+        dbRef= FirebaseDatabase.getInstance().getReference().child("User");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -51,7 +51,7 @@ public class MyOrders extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()){
                     for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
 
-                        Orders add=dataSnapshot1.getValue(Orders.class);
+                        Order add=dataSnapshot1.getValue(Order.class);
                         orderList.add(add);
 
                     }
@@ -67,19 +67,41 @@ public class MyOrders extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        /*btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MyOrders.this,MainActivity.class);
+                Intent intent = new Intent(ShowAddressDetails.this,AddNewAddress.class);
                 startActivity(intent);
 
             }
-        });
+        });*/
 
 
 
 
     }
 }
- **/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

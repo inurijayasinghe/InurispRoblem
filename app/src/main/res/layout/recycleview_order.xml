@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/parent_layout"
+
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
@@ -16,10 +16,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="206dp">
+
 
             <TextView
-                android:id="@+id/id"
+
+                android:id="@+id/tv1"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -32,7 +34,8 @@
                 app:layout_constraintVertical_bias="0.093" />
 
             <TextView
-                android:id="@+id/name"
+
+                android:id="@+id/tv2"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -45,7 +48,8 @@
                 app:layout_constraintVertical_bias="0.239" />
 
             <TextView
-                android:id="@+id/price"
+
+                android:id="@+id/tv3"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -58,7 +62,8 @@
                 app:layout_constraintVertical_bias="0.385" />
 
             <TextView
-                android:id="@+id/qty"
+
+                android:id="@+id/tv4"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -71,7 +76,8 @@
                 app:layout_constraintVertical_bias="0.532" />
 
             <TextView
-                android:id="@+id/url"
+
+                android:id="@+id/tv5"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -84,7 +90,8 @@
                 app:layout_constraintVertical_bias="0.678" />
 
             <TextView
-                android:id="@+id/telephoner"
+
+                android:id="@+id/tv6"
                 android:layout_width="210dp"
                 android:layout_height="25dp"
                 android:fontFamily="sans-serif-condensed"
@@ -97,7 +104,8 @@
                 app:layout_constraintVertical_bias="0.824" />
 
             <ImageButton
-                android:id="@+id/update"
+
+                android:id="@+id/orderUpdate"
                 android:layout_width="71dp"
                 android:layout_height="60dp"
                 android:background="#FFFFFF"
@@ -110,7 +118,8 @@
                 app:srcCompat="@drawable/ic_baseline_edit_24" />
 
             <ImageButton
-                android:id="@+id/delete"
+
+                android:id="@+id/orderDelete"
                 android:layout_width="71dp"
                 android:layout_height="60dp"
                 android:background="#FFFFFF"

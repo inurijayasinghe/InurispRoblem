@@ -1,4 +1,4 @@
-/**package com.example.pc_house;
+package com.example.pc_house;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,11 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHolder> {
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
 
 
     private Context mCtx;
-    private List<Orders> addList;
+    private List<Order> addOrderList;
     private OnItemClickListener mLister;
 
     public interface OnItemClickListener {
@@ -37,55 +37,55 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHo
 
     }
 
-    public OrderAdapter(Context mCtx, List<Orders> addList) {
+    public OrderAdapter( Context mCtx, List<Order> addOrderList) {
 
         this.mCtx = mCtx;
-        this.addList = addList;
+        this.addOrderList = addOrderList;
 
     }
 
 
     @NonNull
     @Override
-    public OrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.order_item, parent, false);
-        return new OrdersViewHolder(view);
+    public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.recycleview_order, parent, false);
+        return new OrderViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final OrdersViewHolder holder, final int position) {
-        final Orders add =addList.get(position);
-       // holder.aa.setText(add.getPrice());
-      //  holder.bb.setText(add.getId());
-      //  holder.cc.setText(add.getName());
-       // holder.dd.setText(add.getQty());
-        //holder.ee.setText(String.valueOf(add.getUrl()));
+    public void onBindViewHolder(@NonNull final OrderViewHolder holder, final int position) {
+        final Order add =addOrderList.get(position);
+        holder.txtv1.setText(add.getStreet_Address());
+        holder.txtv2.setText(add.getCty());
+        holder.txtv3.setText(add.getProvince());
+        holder.txtv4.setText(add.getCountry());
+        holder.txtv5.setText(String.valueOf(add.getPostalCode()));
+        holder.txtv6.setText(String.valueOf(add.getTelephone()));
 
-
-        holder.btn.setOnClickListener(new View.OnClickListener() {
+        /*holder.orderUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //pass object using intent
-                Intent intent = new Intent(holder.btn.getContext(),MainActivity.class);
-                Orders add= addList.get(position);
-                intent.putExtra("id",add);
-                holder.btn.getContext().startActivity(intent);
+                Intent intent = new Intent(holder.orderUpdate.getContext(),EditAddressDetails.class);
+                Order add= addOrderList.get(position);
+                intent.putExtra("addrr",add);
+                holder.orderUpdate.getContext().startActivity(intent);
                 //end pass object intent
 
 
             }
-        });
-        holder.btndel.setOnClickListener(new View.OnClickListener() {
+        });*/
+        /*holder.orderDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Item").child(String.valueOf(add.getId()));
+                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(String.valueOf(add.getAddressId()));
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.btndel.getContext(),MainActivity.class);
-                        holder.btndel.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.orderDel.getContext(),ShowAddressDetails.class);
+                        holder.orderDel.getContext().startActivity(intent);
 
                     }
 
@@ -96,34 +96,34 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHo
                 });
 
             }
-        });
+        });*/
 
     }
 
 
     @Override
     public int getItemCount() {
-        return addList.size();
+        return addOrderList.size();
     }
 
 
 
-    class OrdersViewHolder extends RecyclerView.ViewHolder {
+    class OrderViewHolder extends RecyclerView.ViewHolder {
 
-        TextView aa,bb,cc,dd,ee;
-        ImageButton btn,btndel;
+        TextView txtv1, txtv2, txtv3, txtv4, txtv5, txtv6;
+        ImageButton orderUpdate, orderDel;
 
 
-        public OrdersViewHolder(@NonNull View itemView) {
+        public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
-            aa = itemView.findViewById(R.id.id);
-            bb = itemView.findViewById(R.id.name);
-            cc = itemView.findViewById(R.id.price);
-            dd = itemView.findViewById(R.id.qty);
-            ee = itemView.findViewById(R.id.url);
-
-            btn=itemView.findViewById(R.id.update);
-            btndel=itemView.findViewById(R.id.delete);
+            txtv1 = itemView.findViewById(R.id.tv1);
+            txtv2 = itemView.findViewById(R.id.tv2);
+            txtv3 = itemView.findViewById(R.id.tv3);
+            txtv4 = itemView.findViewById(R.id.tv4);
+            txtv5 = itemView.findViewById(R.id.tv5);
+            txtv6 = itemView.findViewById(R.id.tv6);
+            orderUpdate =itemView.findViewById(R.id.orderUpdate);
+            orderDel =itemView.findViewById(R.id.orderDelete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -142,4 +142,3 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdersViewHo
     }
 }
 
-**/
