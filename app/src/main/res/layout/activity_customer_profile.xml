@@ -38,7 +38,7 @@
 
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/customerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
@@ -51,7 +51,7 @@
             android:textSize="32sp" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/logOutbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -76,8 +76,8 @@
         android:layout_below="@+id/linlay1">
 
         <LinearLayout
-            android:layout_width="370dp"
-            android:layout_height="476dp"
+            android:layout_width="362dp"
+            android:layout_height="504dp"
             android:layout_centerInParent="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
@@ -97,6 +97,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/customerEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -126,6 +127,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/customerPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -155,6 +157,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/customerId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -180,33 +183,39 @@
                     android:id="@+id/editProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Edit Profile" />
+                    android:text="@string/EditProfile" />
+
+                <Button
+                    android:id="@+id/myOrdersBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/MyOrders" />
 
                 <Button
                     android:id="@+id/paymentDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="payment details" />
+                    android:text="@string/paymentdetails" />
 
                 <Button
                     android:id="@+id/paymentHistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="Payment History" />
+                    android:text="@string/PaymentHistory" />
 
                 <Button
                     android:id="@+id/shippingDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="Address Details" />
+                    android:text="@string/AddressDetails" />
 
                 <Button
                     android:id="@+id/registerAsASeller"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Register as a seller" />
+                    android:text="@string/Registerasaseller" />
 
             </LinearLayout>
 

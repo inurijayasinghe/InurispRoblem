@@ -56,26 +56,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(@NonNull final OrderViewHolder holder, final int position) {
         final Order add =addOrderList.get(position);
-        holder.txtv1.setText(add.getStreet_Address());
-        holder.txtv2.setText(add.getCty());
-        holder.txtv3.setText(add.getProvince());
-        holder.txtv4.setText(add.getCountry());
-        holder.txtv5.setText(String.valueOf(add.getPostalCode()));
-        holder.txtv6.setText(String.valueOf(add.getTelephone()));
-
-        /*holder.orderUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //pass object using intent
-                Intent intent = new Intent(holder.orderUpdate.getContext(),EditAddressDetails.class);
-                Order add= addOrderList.get(position);
-                intent.putExtra("addrr",add);
-                holder.orderUpdate.getContext().startActivity(intent);
-                //end pass object intent
+        holder.txtv1.setText(add.getId());
+        holder.txtv2.setText(add.getName());
+        holder.txtv3.setText(add.getUrl());
+        holder.txtv5.setText(String.valueOf(add.getPrice()));
+        holder.txtv6.setText(String.valueOf(add.getQty()));
 
 
-            }
-        });*/
         /*holder.orderDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +106,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             txtv1 = itemView.findViewById(R.id.tv1);
             txtv2 = itemView.findViewById(R.id.tv2);
             txtv3 = itemView.findViewById(R.id.tv3);
-            txtv4 = itemView.findViewById(R.id.tv4);
             txtv5 = itemView.findViewById(R.id.tv5);
             txtv6 = itemView.findViewById(R.id.tv6);
             orderUpdate =itemView.findViewById(R.id.orderUpdate);
@@ -132,7 +118,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
                         int position = getAdapterPosition();
                         if (position!=RecyclerView.NO_POSITION) {
                             mLister.OnItemClick(position);
-
                         }
                     }
                 }

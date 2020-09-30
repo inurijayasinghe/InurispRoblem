@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +30,7 @@ public class ShowOrderDetails extends AppCompatActivity {
     List<Order> orderList;
     DatabaseReference dbRef;
     Button btn;
+    FirebaseAuth firebaseAuthh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,9 @@ public class ShowOrderDetails extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         btn = findViewById(R.id.addNew);
 
-        dbRef= FirebaseDatabase.getInstance().getReference().child("User");
+
+
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Order").child(firebaseAuthh.getCurrentUser().getUid());
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -51,9 +55,8 @@ public class ShowOrderDetails extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()){
                     for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
 
-                        Order add=dataSnapshot1.getValue(Order.class);
-                        orderList.add(add);
-
+                        Order order=dataSnapshot1.getValue(Order.class);
+                        orderList.add(order);
                     }
                     adapter.notifyDataSetChanged();
 

@@ -5,25 +5,23 @@ import android.os.Parcelable;
 
 public class Order implements Parcelable  {
 
-    private int AddressId;
-    private String Country;
-    private String Street_Address;
-    private String Cty;
-    private String Province;
-    private int postalCode;
-    private int Telephone;
+    private int price;
+    private String id; 
+    private String name; 
+    private String url;
+    private int qty;
+
 
     public Order() {
     }
 
     protected Order(Parcel in) {
-        AddressId = in.readInt();
-        Country = in.readString();
-        Street_Address = in.readString();
-        Cty = in.readString();
-        Province = in.readString();
-        postalCode = in.readInt();
-        Telephone = in.readInt();
+        price = in.readInt();
+        id = in.readString();
+        name = in.readString();
+        url = in.readString();
+        qty = in.readInt();
+
     }
 
     public static final Creator<Order> CREATOR = new Creator<Order>() {
@@ -37,60 +35,50 @@ public class Order implements Parcelable  {
             return new Order[size];
         }
     };
-    public int getAddressId() {
-        return AddressId;
+
+
+    public int getPrice() {
+        return price;
     }
 
-    public void setAddressId(int addressId) {
-        AddressId = addressId;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getCountry() {
-        return Country;
+    public String getId() {
+        return id;
     }
 
-    public void setCountry(String country) {
-        Country = country;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getStreet_Address() {
-        return Street_Address;
+    public String getName() {
+        return name;
     }
 
-    public void setStreet_Address(String street_Address) {
-        Street_Address = street_Address;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCty() {
-        return Cty;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCty(String cty) {
-        Cty = cty;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getProvince() {
-        return Province;
+    public int getQty() {
+        return qty;
     }
 
-    public void setProvince(String province) {
-        Province = province;
+    public void setQty(int qty) {
+        this.qty = qty;
     }
 
-    public int getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public int getTelephone() {
-        return Telephone;
-    }
-
-    public void setTelephone(int telephone) {
-        Telephone = telephone;
+    public static Creator<Order> getCREATOR() {
+        return CREATOR;
     }
 
     @Override
@@ -100,12 +88,11 @@ public class Order implements Parcelable  {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(AddressId);
-        dest.writeString(Country);
-        dest.writeString(Street_Address);
-        dest.writeString(Cty);
-        dest.writeString(Province);
-        dest.writeInt(postalCode);
-        dest.writeInt(Telephone);
+        dest.writeInt(price);
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(url);
+        dest.writeInt(qty);
+
     }
 }
