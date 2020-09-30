@@ -147,7 +147,7 @@
             app:srcCompat="@drawable/ic_baseline_home" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/categoryBtn"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

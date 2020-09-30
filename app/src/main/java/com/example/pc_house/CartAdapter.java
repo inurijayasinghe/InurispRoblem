@@ -49,7 +49,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CartViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CartViewHolder holder, final int position) {
         final TheCart cart=cartList.get(position);
 
         fAuth=FirebaseAuth.getInstance();
@@ -69,12 +69,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             @Override
             public void onClick(View view) {
                 dbRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(fAuth.getCurrentUser().getUid()).child(String.valueOf(cart.getID()));
+
+                notifyItemRangeChanged(position,cartList.size());
                 double Unitprice=cart.getPrice()/cart.getQty();
+                int qty=cart.getQty();
                 cart.setQty(Integer.parseInt(holder.numberButton.getNumber()));
                 cart.setPrice(cart.getQty()*Unitprice);
                 dbRef.setValue(cart);
-                Intent intent=new Intent(holder.numberButton.getContext(),Cart.class);
-                holder.numberButton.getContext().startActivity(intent);
+
+holder.numberButton.getContext().startActivity(new Intent(holder.numberButton.getContext(),Cart.class));
+
+
+
+
+
+
+
             }
         });
 

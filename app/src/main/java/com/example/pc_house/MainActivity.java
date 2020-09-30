@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
     private ItemAdapter adapter;
     private List<Item> itemList;
     DatabaseReference dbRef;
-    ImageView cart,profile;
+    ImageView cart,profile,category;
     Item item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
         setContentView(R.layout.activity_main);
 
         cart=findViewById(R.id.cart);
+        category=findViewById(R.id.categoryBtn);
         profile=findViewById(R.id.btnProfile);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -82,6 +83,13 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CustomerProfile.class );
                 startActivity(intent);
+            }
+        });
+
+        category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Category.class));
             }
         });
 

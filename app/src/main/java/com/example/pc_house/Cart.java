@@ -40,8 +40,9 @@ public class Cart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-firebaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth=FirebaseAuth.getInstance();
         total=findViewById(R.id.PriceView);
+        sum=0.0;
         checkout=findViewById(R.id.cartCheck);
         home=findViewById(R.id.homeImage);
         recyclerView = findViewById(R.id.recyclerView2);
@@ -101,21 +102,21 @@ firebaseAuth=FirebaseAuth.getInstance();
             }
         });
 
-checkout.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        DatabaseReference dbRef2=FirebaseDatabase.getInstance().getReference().child("Order").child(firebaseAuth.getCurrentUser().getUid());
-        String Orderid=dbRef2.push().getKey();
-        for(int i=0;i<cartList.size();++i){
-            DatabaseReference  dbRef1=FirebaseDatabase.getInstance().getReference().child("Cart").child(firebaseAuth.getCurrentUser().getUid()).child(cartList.get(i).getID());
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference dbRef2=FirebaseDatabase.getInstance().getReference().child("Order").child(firebaseAuth.getCurrentUser().getUid());
+                String Orderid=dbRef2.push().getKey();
+                for(int i=0;i<cartList.size();++i){
+                    DatabaseReference  dbRef1=FirebaseDatabase.getInstance().getReference().child("Cart").child(firebaseAuth.getCurrentUser().getUid()).child(cartList.get(i).getID());
 
-            dbRef2.child(Orderid).child(cartList.get(i).getID()).setValue(cartList.get(i));
-            dbRef1.removeValue();
-            startActivity(new Intent(getApplicationContext(),Cart.class));
+                    dbRef2.child(Orderid).child(cartList.get(i).getID()).setValue(cartList.get(i));
+                    dbRef1.removeValue();
+                    startActivity(new Intent(getApplicationContext(),Cart.class));
 
-        }
-    }
-});
+                }
+            }
+        });
 
 
 

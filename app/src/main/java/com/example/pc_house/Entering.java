@@ -15,7 +15,7 @@ public class Entering extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
-                Intent i = new Intent(Entering.this, Register.class); startActivity(i);
+                Intent i = new Intent(Entering.this, Welcome.class); startActivity(i);
                 finish(); } }, 3000);
 
     }
