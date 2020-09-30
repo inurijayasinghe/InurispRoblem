@@ -42,7 +42,7 @@ public class ShowProductDetals extends AppCompatActivity {
         productList = new ArrayList<>();
         adapter = new ProductAdapter( this, productList);
         recyclerView.setAdapter(adapter);
-        productbtn = findViewById(R.id.addNew);
+        productbtn = findViewById(R.id.addNewProduct);
 
 
         dbRef= FirebaseDatabase.getInstance().getReference().child("Product Details");

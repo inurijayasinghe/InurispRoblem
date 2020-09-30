@@ -53,12 +53,12 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
     @Override
     public void onBindViewHolder(@NonNull final PaymentViewHolder holder, final int position) {
         final Payment pay=addList.get(position);
-        holder.a.setText(pay.getCustomer_name());
-        holder.b.setText(pay.getCardNo());
-        holder.c.setText(String.valueOf(pay.getCvv()));
-        holder.d.setText(pay.getExpireDate());
+        holder.holderName.setText(pay.getCustomer_name());
+        holder.cardNo.setText(pay.getCardNo());
+        holder.cvv.setText(String.valueOf(pay.getCvv()));
+        holder.expireDate.setText(pay.getExpireDate());
 
-        holder.delete.setOnClickListener(new View.OnClickListener() {
+        holder.btnDelPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -68,8 +68,8 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.delete.getContext(),ShowPaymentDetails.class);
-                        holder.delete.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.btnDelPay.getContext(),ShowPaymentDetails.class);
+                        holder.btnDelPay.getContext().startActivity(intent);
 
                     }
 
@@ -84,15 +84,15 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
             }
         });
 
-        holder.edit.setOnClickListener(new View.OnClickListener() {
+        holder.btnEditPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //pass object using intent
-                Intent intent = new Intent(holder.edit.getContext(),EditPaymentDetails.class);
+                Intent intent = new Intent(holder.btnEditPay.getContext(),EditPaymentDetails.class);
                 Payment pay1= addList.get(position);
                 intent.putExtra("payyr",pay1);
-                holder.edit.getContext().startActivity(intent);
+                holder.btnEditPay.getContext().startActivity(intent);
                 //end pass object intent
 
             }
@@ -110,19 +110,19 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
 
     class PaymentViewHolder extends RecyclerView.ViewHolder{
 
-        TextView a,b,c,d;
-        ImageButton edit,delete;
+        TextView holderName,cardNo,expireDate,cvv;
+        ImageButton btnEditPay,btnDelPay;
 
 
 
         public PaymentViewHolder(@NonNull View itemView) {
             super(itemView);
-            a=itemView.findViewById(R.id.holdernamer);
-            b=itemView.findViewById(R.id.cardNor);
-            c=itemView.findViewById(R.id.cvvr);
-            d=itemView.findViewById(R.id.expireDater);
-            edit=itemView.findViewById(R.id.payeditr);
-            delete=itemView.findViewById(R.id.paydeleter);
+            holderName=itemView.findViewById(R.id.holdernamer);
+            cardNo=itemView.findViewById(R.id.cardNor);
+            cvv=itemView.findViewById(R.id.cvvr);
+            expireDate=itemView.findViewById(R.id.expireDater);
+            btnEditPay=itemView.findViewById(R.id.payeditr);
+            btnDelPay=itemView.findViewById(R.id.paydeleter);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -15,7 +15,7 @@
             android:id="@+id/description2"
             android:layout_width="408dp"
             android:layout_height="59dp"
-            android:text="@string/description2"
+            android:text="@string/EditProduct"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"

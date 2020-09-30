@@ -29,7 +29,7 @@ public class ShowAddressDetails extends AppCompatActivity {
     List<Address> addressList;
     DatabaseReference dbRef;
     FirebaseAuth firebaseAuth;
-    Button btn;
+    Button Addressbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ShowAddressDetails extends AppCompatActivity {
         addressList = new ArrayList<>();
         adapter = new AddressAdapter( this, addressList);
         recyclerView.setAdapter(adapter);
-        btn = findViewById(R.id.addNew);
+        Addressbtn = findViewById(R.id.addNewAddress);
         firebaseAuth=FirebaseAuth.getInstance();
 
 
@@ -70,7 +70,7 @@ public class ShowAddressDetails extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        Addressbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

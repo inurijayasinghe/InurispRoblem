@@ -59,27 +59,27 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
     public void onBindViewHolder(@NonNull final AddressViewHolder holder, final int position) {
         final Address add =addList.get(position);
         firebaseAuth=FirebaseAuth.getInstance();
-        holder.a.setText(add.getStreet_Address());
-        holder.b.setText(add.getCty());
-        holder.c.setText(add.getProvince());
-        holder.d.setText(add.getCountry());
-        holder.e.setText(String.valueOf(add.getPostalCode()));
-        holder.f.setText(String.valueOf(add.getTelephone()));
+        holder.street.setText(add.getStreet_Address());
+        holder.city.setText(add.getCty());
+        holder.province.setText(add.getProvince());
+        holder.country.setText(add.getCountry());
+        holder.postal.setText(String.valueOf(add.getPostalCode()));
+        holder.telephone.setText(String.valueOf(add.getTelephone()));
 
-        holder.btn.setOnClickListener(new View.OnClickListener() {
+        holder.btnEditAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //pass object using intent
-                Intent intent = new Intent(holder.btn.getContext(),EditAddressDetails.class);
+                Intent intent = new Intent(holder. btnEditAdd.getContext(),EditAddressDetails.class);
                 Address add= addList.get(position);
                 intent.putExtra("addrr",add);
-                holder.btn.getContext().startActivity(intent);
+                holder. btnEditAdd.getContext().startActivity(intent);
                 //end pass object intent
 
 
             }
         });
-        holder.btndel.setOnClickListener(new View.OnClickListener() {
+        holder.btnDelAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(firebaseAuth.getCurrentUser().getUid()).child(String.valueOf(add.getAddressId()));
@@ -87,8 +87,8 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.btndel.getContext(),ShowAddressDetails.class);
-                        holder.btndel.getContext().startActivity(intent);
+                        Intent intent=new Intent(holder.btnDelAdd.getContext(),ShowAddressDetails.class);
+                        holder.btnDelAdd.getContext().startActivity(intent);
 
                     }
 
@@ -113,20 +113,20 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
     class AddressViewHolder extends RecyclerView.ViewHolder {
 
-        TextView a,b,c,d,e,f;
-        ImageButton btn,btndel;
+        TextView street,city,province,postal,telephone,country;
+        ImageButton btnEditAdd,btnDelAdd;
 
 
         public AddressViewHolder(@NonNull View itemView) {
             super(itemView);
-            a = itemView.findViewById(R.id.streetr);
-            b = itemView.findViewById(R.id.cityr);
-            c = itemView.findViewById(R.id.provincer);
-            d = itemView.findViewById(R.id.countryr);
-            e = itemView.findViewById(R.id.postalr);
-            f = itemView.findViewById(R.id.telephoner);
-            btn=itemView.findViewById(R.id.update);
-            btndel=itemView.findViewById(R.id.delete);
+            street = itemView.findViewById(R.id.streetr);
+            city = itemView.findViewById(R.id.cityr);
+            province = itemView.findViewById(R.id.provincer);
+            country = itemView.findViewById(R.id.countryr);
+            postal = itemView.findViewById(R.id.postalr);
+            telephone = itemView.findViewById(R.id.telephoner);
+            btnEditAdd=itemView.findViewById(R.id.update);
+            btnDelAdd=itemView.findViewById(R.id.delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

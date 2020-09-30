@@ -29,7 +29,7 @@ public class ShowOrderDetails extends AppCompatActivity {
     OrderAdapter adapter;
     List<Order> orderList;
     DatabaseReference dbRef;
-    Button btn;
+    //Button showOrderbtn;
     FirebaseAuth firebaseAuthh;
 
     @Override
@@ -43,7 +43,7 @@ public class ShowOrderDetails extends AppCompatActivity {
         orderList = new ArrayList<>();
         adapter = new OrderAdapter( this, orderList);
         recyclerView.setAdapter(adapter);
-        btn = findViewById(R.id.addNew);
+        //showOrderbtn = findViewById(R.id.addOrder);
 
 
 

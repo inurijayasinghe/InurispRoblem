@@ -34,6 +34,7 @@
     <string name="confiirmAdd">Confirm</string>
     <string name="addNew">Add New Address</string>
     <string name="description">Please enter your address in English character as required by international logistics services.</string>
+    <string name="description1">Add Product</string>
     <string name="show">Show</string>
     <string name="custName">Cardholder Name</string>
     <string name="cardNo">Card Number</string>
@@ -65,4 +66,10 @@
     <string name="PaymentHistory">Payment History</string>
     <string name="AddressDetails">Address Details</string>
     <string name="Registerasaseller">Register as a seller</string>
+    <string name="Productname">Product Name</string>
+    <string name="ProductCategory">Product Category</string>
+    <string name="ProuctDescription">Product Description</string>
+    <string name="Price">Price</string>
+    <string name="addNewProduct">Add new Product</string>
+    <string name="EditProduct">Edit Product</string>
 </resources>

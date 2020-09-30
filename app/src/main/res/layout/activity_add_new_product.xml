@@ -13,8 +13,8 @@
 
         <TextView
             android:id="@+id/description1"
-            android:layout_width="408dp"
-            android:layout_height="65dp"
+            android:layout_width="411dp"
+            android:layout_height="81dp"
             android:text="@string/description1"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -95,29 +95,17 @@
 
         <Button
             android:id="@+id/confirmProduct"
-            android:layout_width="175dp"
-            android:layout_height="45dp"
+            android:layout_width="389dp"
+            android:layout_height="53dp"
             android:background="@drawable/custome_button"
             android:text="@string/confiirmAdd"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.881"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.4" />
 
-        <Button
-            android:id="@+id/skipAdd"
-            android:layout_width="175dp"
-            android:layout_height="45dp"
-            android:background="@drawable/skip_button"
-            android:text="@string/skip"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.067"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

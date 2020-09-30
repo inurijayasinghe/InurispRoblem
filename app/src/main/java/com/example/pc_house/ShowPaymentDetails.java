@@ -25,7 +25,7 @@ public class ShowPaymentDetails extends AppCompatActivity {
     PaymentAdapter paymentAdapter;
     List<Payment> paymentList;
     DatabaseReference dbRef;
-    Button btn;
+    Button Paybtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class ShowPaymentDetails extends AppCompatActivity {
         paymentList = new ArrayList<>();
         paymentAdapter = new PaymentAdapter( this, paymentList);
         recyclerView.setAdapter(paymentAdapter);
-        btn = findViewById(R.id.addpay);
+        Paybtn = findViewById(R.id.addpay);
 
         dbRef= FirebaseDatabase.getInstance().getReference().child("Payment Details");
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -65,7 +65,7 @@ public class ShowPaymentDetails extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        Paybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
