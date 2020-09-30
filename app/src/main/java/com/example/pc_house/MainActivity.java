@@ -75,16 +75,18 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
                 startActivity(new Intent(MainActivity.this,Cart.class));
             }
         });
+
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),loging.class));
-                finish();
+                Intent intent = new Intent(MainActivity.this, CustomerProfile.class );
+                startActivity(intent);
             }
         });
 
     }
+
 
 
     @Override

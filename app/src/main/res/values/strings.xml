@@ -59,4 +59,10 @@
     <string name="log_pass">Enter Your Password</string>
     <string name="addNewOrder">AddOrder</string>
     <string name="OrderAgain">Order Again</string>
+    <string name="MyOrders">My Orders</string>
+    <string name="EditProfile">Edit Profile</string>
+    <string name="paymentdetails">payment details</string>
+    <string name="PaymentHistory">Payment History</string>
+    <string name="AddressDetails">Address Details</string>
+    <string name="Registerasaseller">Register as a seller</string>
 </resources>
