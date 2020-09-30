@@ -59,4 +59,11 @@
     <string name="log_pass">Enter Your Password</string>
     <string name="addNewOrder">AddOrder</string>
     <string name="OrderAgain">Order Again</string>
+    <string name="addNewProduct">Add New Product</string>
+    <string name="Productname">Productname</string>
+    <string name="ProductCategory">ProductCategory</string>
+    <string name="ProuctDescription">ProuctDescription</string>
+    <string name="Price">Price</string>
+    <string name="description1">Enter your Product Details</string>
+    <string name="description2">Edit your Product Details</string>
 </resources>
