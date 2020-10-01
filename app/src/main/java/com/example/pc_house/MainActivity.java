@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CustomerProfile.class );
+                Intent intent = new Intent(getApplicationContext(), CustomerProfile.class );
                 startActivity(intent);
             }
         });
