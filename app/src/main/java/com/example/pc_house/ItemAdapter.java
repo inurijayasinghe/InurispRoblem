@@ -48,8 +48,8 @@ public class ItemAdapter extends
     public void onBindViewHolder(@NonNull ItemAdapter.ItemViewHolder holder, int position) {
         Item item =itemList.get(position);
         Glide.with(mCtx).load(item.getUrl()).into(holder.imageView);
-        holder.textViewName.setText("Name: " + item.getName());
-        holder.textViewPrice.setText("Price: "+item.getPrice());
+        holder.textViewName.setText( item.getName());
+        holder.textViewPrice.setText(String.valueOf(item.getPrice()));
 
     }
 

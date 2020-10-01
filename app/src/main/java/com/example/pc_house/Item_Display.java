@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Item_Display extends AppCompatActivity {
-    TextView title,price,qty;
+    TextView title,price,qty,description;
     ImageView image;
     Button add,plus,minus;
     FirebaseAuth fAuth;

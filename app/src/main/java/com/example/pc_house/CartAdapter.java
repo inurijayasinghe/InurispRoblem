@@ -54,8 +54,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         fAuth=FirebaseAuth.getInstance();
         Glide.with(mCtx).load(cart.getUrl()).into(holder.imageView1);
-        holder.textViewName1.setText("Name: " + cart.getName());
-        holder.textViewPrice1.setText("Price: "+cart.getPrice());
+        holder.textViewName1.setText(cart.getName());
+        holder.textViewPrice1.setText(String.valueOf(cart.getPrice()));
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,9 +75,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 int qty=cart.getQty();
                 cart.setQty(Integer.parseInt(holder.numberButton.getNumber()));
                 cart.setPrice(cart.getQty()*Unitprice);
+                cartList.remove(position);
+                dbRef.removeValue();
+
+
                 dbRef.setValue(cart);
 
-holder.numberButton.getContext().startActivity(new Intent(holder.numberButton.getContext(),Cart.class));
+
+
+
 
 
 
