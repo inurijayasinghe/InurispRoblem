@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +23,7 @@ public class EditPaymentDetails extends AppCompatActivity {
     Button save;
     Payment pay;
     DatabaseReference dbRef;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class EditPaymentDetails extends AppCompatActivity {
         cvv=findViewById(R.id.editcvv);
         exdate=findViewById(R.id.editexpireDate);
         save=findViewById(R.id.saveconfirmAddPayment);
+        firebaseAuth=FirebaseAuth.getInstance();
 
         pay= new Payment();
 
@@ -44,13 +47,13 @@ public class EditPaymentDetails extends AppCompatActivity {
         cvv.setText(String.valueOf(pay.getCvv()));
         exdate.setText(pay.getExpireDate());
 
-
+        //Updating Payment Details
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Payment Details");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Payment Details").child(firebaseAuth.getCurrentUser().getUid());
                 dbRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -64,7 +67,7 @@ public class EditPaymentDetails extends AppCompatActivity {
                             dbRef.child(String.valueOf(pay.getPaymentId())).setValue(pay);
 
                             Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent1 = new Intent(EditPaymentDetails.this,ShowPaymentDetails.class);
+                            Intent intent1 = new Intent(EditPaymentDetails.this,CustomerProfile.class);
                             startActivity(intent1);
 
 

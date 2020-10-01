@@ -33,7 +33,9 @@
     <string name="number">Phone Number</string>
     <string name="confiirmAdd">Confirm</string>
     <string name="addNew">Add New Address</string>
-    <string name="description">Please enter your address in English character as required by international logistics services.</string>
+    <string name="EditAdd">Edit Address Details</string>
+    <string name="addPay">Add New Card</string>
+    <string name="EditPay">Edit Card Details</string>
     <string name="description1">Add Product</string>
     <string name="show">Show</string>
     <string name="custName">Cardholder Name</string>

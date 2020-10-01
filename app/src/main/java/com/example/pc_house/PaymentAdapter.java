@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +25,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
 
     private Context mCtx;
     private List<Payment> addList;
+    FirebaseAuth firebaseAuth;
     private OnItemClickListener mLister;
 
     public interface OnItemClickListener {
@@ -53,22 +55,24 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
     @Override
     public void onBindViewHolder(@NonNull final PaymentViewHolder holder, final int position) {
         final Payment pay=addList.get(position);
+        firebaseAuth=FirebaseAuth.getInstance();
         holder.holderName.setText(pay.getCustomer_name());
         holder.cardNo.setText(pay.getCardNo());
         holder.cvv.setText(String.valueOf(pay.getCvv()));
         holder.expireDate.setText(pay.getExpireDate());
 
+        //Deleting Payment Details
         holder.btnDelPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Payment Details").child(String.valueOf(pay.getPaymentId()));
+                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Payment Details").child(firebaseAuth.getCurrentUser().getUid()).child(String.valueOf(pay.getPaymentId()));
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.btnDelPay.getContext(),ShowPaymentDetails.class);
+                        Intent intent=new Intent(holder.btnDelPay.getContext(),CustomerProfile.class);
                         holder.btnDelPay.getContext().startActivity(intent);
 
                     }

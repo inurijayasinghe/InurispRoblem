@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +27,7 @@ public class AddNewPayment extends AppCompatActivity {
     EditText addname,addcard,addcvv,addexpire;
     Button btnConfirm;
     DatabaseReference dbRef;
+    FirebaseAuth firebaseAuth;
     Payment pay;
 
 
@@ -40,11 +42,12 @@ public class AddNewPayment extends AppCompatActivity {
         addcvv = findViewById(R.id.cvv);
         addexpire = findViewById(R.id.expireDate);
         btnConfirm = findViewById(R.id.confirmAddPayment);
+        firebaseAuth=FirebaseAuth.getInstance();
 
 
         pay = new Payment();
 
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Payment Details");
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Payment Details").child(firebaseAuth.getCurrentUser().getUid());
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -117,7 +120,7 @@ public class AddNewPayment extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Successfully Added !!!", Toast.LENGTH_SHORT).show();
                     clearControls();
-                    Intent intent = new Intent(AddNewPayment.this, ShowPaymentDetails.class);
+                    Intent intent = new Intent(AddNewPayment.this, CustomerProfile.class);
                     startActivity(intent);
 
                 }catch (NumberFormatException e){

@@ -79,6 +79,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
 
             }
         });
+        //Deleting Delivery Details
         holder.btnDelAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +88,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.AddressV
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         dbRef.removeValue();
-                        Intent intent=new Intent(holder.btnDelAdd.getContext(),ShowAddressDetails.class);
+                        Intent intent=new Intent(holder.btnDelAdd.getContext(),CustomerProfile.class);
                         holder.btnDelAdd.getContext().startActivity(intent);
 
                     }

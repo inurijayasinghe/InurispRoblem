@@ -10,24 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Category"></activity>
-        <activity android:name=".EditAddressDetails" />
-        <activity android:name=".ShowAddressDetails"></activity>
-        <activity android:name=".ShowPaymentDetails" />
-        <activity android:name=".EditPaymentDetails" />
-        <activity android:name=".AddNewPayment" />
-        <activity android:name=".AddNewAddress" />
+        <activity android:name=".EditAddressDetails"
+            android:parentActivityName=".ShowAddressDetails"/>
+        <activity android:name=".ShowAddressDetails"
+            android:parentActivityName=".CustomerProfile"/>
+        <activity android:name=".ShowPaymentDetails"
+            android:parentActivityName=".CustomerProfile"/>
+        <activity android:name=".EditPaymentDetails"
+            android:parentActivityName=".ShowOrderDetails"/>
+        <activity android:name=".AddNewPayment"
+            android:parentActivityName=".ShowPaymentDetails"/>
+        <activity android:name=".AddNewAddress"
+            android:parentActivityName=".ShowAddressDetails"/>
         <activity android:name=".loging"></activity>
         <activity android:name=".Register" />
-        <activity android:name=".Entering"></activity>
+        <activity android:name=".Entering"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".Welcome" />
         <activity android:name=".CustomerProfile" />
     </application>
