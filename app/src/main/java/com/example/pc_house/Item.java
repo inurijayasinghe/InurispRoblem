@@ -3,10 +3,12 @@ package com.example.pc_house;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Item implements Parcelable {
+public class Item implements  Parcelable {
     private String ID;
     private String Name;
     private double Price;
+    private String Category;
+
     private int Qty;
     private String url;
 
@@ -18,6 +20,7 @@ public class Item implements Parcelable {
         ID = in.readString();
         Name = in.readString();
         Price = in.readDouble();
+        Category = in.readString();
         Qty = in.readInt();
         url = in.readString();
     }
@@ -58,6 +61,14 @@ public class Item implements Parcelable {
         Price = price;
     }
 
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String category) {
+        Category = category;
+    }
+
     public int getQty() {
         return Qty;
     }
@@ -84,6 +95,7 @@ public class Item implements Parcelable {
         parcel.writeString(ID);
         parcel.writeString(Name);
         parcel.writeDouble(Price);
+        parcel.writeString(Category);
         parcel.writeInt(Qty);
         parcel.writeString(url);
     }
