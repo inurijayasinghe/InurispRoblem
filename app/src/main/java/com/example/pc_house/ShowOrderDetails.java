@@ -36,7 +36,7 @@ public class ShowOrderDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_order_details);
-
+firebaseAuthh=FirebaseAuth.getInstance();
         recyclerView = findViewById(R.id.recyclerViewOrd);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

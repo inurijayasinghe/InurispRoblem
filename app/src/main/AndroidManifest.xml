@@ -32,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ShowOrderDetails"/>
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
         <activity android:name=".MainActivity"/>
