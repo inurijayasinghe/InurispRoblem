@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_55"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="20dp"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp">
+
+        <ImageView
+            android:id="@+id/image_cat_search"
+            android:layout_width="166dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/image_name_cat_search"
+            android:layout_width="170dp"
+            android:layout_height="44dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/image_cat_search"
+            android:text="Canada"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -9,23 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Category_view"></activity>
+        <activity android:name=".ShowSearchDetails"/>
+        <activity android:name=".Category_view" />
         <activity android:name=".Category" />
-        <activity android:name=".EditAddressDetails"
-            android:parentActivityName=".ShowAddressDetails"/>
-        <activity android:name=".ShowAddressDetails"
-            android:parentActivityName=".CustomerProfile"/>
-        <activity android:name=".ShowPaymentDetails"
-            android:parentActivityName=".CustomerProfile"/>
-        <activity android:name=".EditPaymentDetails"
-            android:parentActivityName=".ShowPaymentDetails"/>
-        <activity android:name=".AddNewPayment"
-            android:parentActivityName=".ShowPaymentDetails"/>
-        <activity android:name=".AddNewAddress"
-            android:parentActivityName=".ShowAddressDetails"/>
+        <activity
+            android:name=".EditAddressDetails"
+            android:parentActivityName=".ShowAddressDetails" />
+        <activity
+            android:name=".ShowAddressDetails"
+            android:parentActivityName=".CustomerProfile" />
+        <activity
+            android:name=".ShowPaymentDetails"
+            android:parentActivityName=".CustomerProfile" />
+        <activity
+            android:name=".EditPaymentDetails"
+            android:parentActivityName=".ShowPaymentDetails" />
+        <activity
+            android:name=".AddNewPayment"
+            android:parentActivityName=".ShowPaymentDetails" />
+        <activity
+            android:name=".AddNewAddress"
+            android:parentActivityName=".ShowAddressDetails" />
         <activity android:name=".loging" />
         <activity android:name=".Register" />
-        <activity android:name=".Entering" >
+        <activity android:name=".Entering">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +42,11 @@
         <activity android:name=".ShowOrderDetails"/>
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
-        <activity android:name=".MainActivity"/>
-
+        <activity android:name=".MainActivity" />
         <activity android:name=".Welcome" />
-        <activity android:name=".CustomerProfile" />
+        <activity
+            android:name=".CustomerProfile"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
