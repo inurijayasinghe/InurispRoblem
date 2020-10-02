@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc_house.ShowSearchDetails">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="413dp"
+            android:layout_height="76dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view_show_search_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/searchResult"
+            android:layout_width="183dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/searchr"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_show_search_details"
+            android:layout_width="421dp"
+            android:layout_height="568dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchResult"
+            app:layout_constraintVertical_bias="0.0">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

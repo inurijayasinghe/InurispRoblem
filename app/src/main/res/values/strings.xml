@@ -75,4 +75,5 @@
     <string name="addNewProduct">Add new Product</string>
     <string name="EditProduct">Edit Product</string>
     <string name="description_text">Description</string>
+    <string name="searchr">Search Result</string>
 </resources>
