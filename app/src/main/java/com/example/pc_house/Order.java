@@ -8,7 +8,7 @@ public class Order implements Parcelable  {
     private int price;
     private String id; 
     private String name; 
-    private String url;
+
     private int qty;
 
 
@@ -19,7 +19,7 @@ public class Order implements Parcelable  {
         price = in.readInt();
         id = in.readString();
         name = in.readString();
-        url = in.readString();
+
         qty = in.readInt();
 
     }
@@ -61,13 +61,6 @@ public class Order implements Parcelable  {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public int getQty() {
         return qty;
@@ -91,7 +84,7 @@ public class Order implements Parcelable  {
         dest.writeInt(price);
         dest.writeString(id);
         dest.writeString(name);
-        dest.writeString(url);
+
         dest.writeInt(qty);
 
     }

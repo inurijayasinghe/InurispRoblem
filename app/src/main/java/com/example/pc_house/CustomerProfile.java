@@ -44,6 +44,7 @@ public class CustomerProfile extends AppCompatActivity {
         logoutBtn = findViewById(R.id.logOutbtn);
 
 
+
         Firebaseauth = FirebaseAuth.getInstance();
         dbref = FirebaseDatabase.getInstance().getReference().child("User").child(Firebaseauth.getCurrentUser().getUid());
         dbref.addValueEventListener(new ValueEventListener() {
@@ -78,6 +79,13 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openUserDetails();
+            }
+        });
+
         myOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +107,10 @@ public class CustomerProfile extends AppCompatActivity {
 
     }
 
+    private void openUserDetails() {
+        Intent intent = new Intent(getApplicationContext(), EditCustomerDetails.class );
+        startActivity(intent);
+    }
 
 
     private void openAddressDetails() {

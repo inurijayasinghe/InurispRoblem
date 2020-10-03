@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ShowOrderDetails extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class ShowOrderDetails extends AppCompatActivity {
     OrderAdapter adapter;
     List<Order> orderList;
     DatabaseReference dbRef;
-    //Button showOrderbtn;
+
     FirebaseAuth firebaseAuthh;
 
     @Override
@@ -43,11 +44,11 @@ public class ShowOrderDetails extends AppCompatActivity {
         orderList = new ArrayList<>();
         adapter = new OrderAdapter( this, orderList);
         recyclerView.setAdapter(adapter);
-        //showOrderbtn = findViewById(R.id.addOrder);
 
 
 
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Order").child(firebaseAuthh.getCurrentUser().getUid());
+
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Order").child(Objects.requireNonNull(firebaseAuthh.getCurrentUser()).getUid());
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -69,20 +70,6 @@ public class ShowOrderDetails extends AppCompatActivity {
 
             }
         });
-
-        /*btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(ShowAddressDetails.this,AddNewAddress.class);
-                startActivity(intent);
-
-            }
-        });*/
-
-
-
-
     }
 }
 

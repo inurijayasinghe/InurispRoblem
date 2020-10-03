@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowSearchDetails"/>
+        <activity android:name=".EditCustomerDetails"></activity>
+        <activity android:name=".ShowSearchDetails" />
         <activity android:name=".Category_view" />
         <activity android:name=".Category" />
         <activity
@@ -39,7 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowOrderDetails"/>
+        <activity android:name=".ShowOrderDetails" />
         <activity android:name=".Item_Display" />
         <activity android:name=".Cart" />
         <activity android:name=".MainActivity" />

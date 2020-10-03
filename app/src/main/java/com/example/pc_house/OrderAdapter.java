@@ -58,32 +58,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         final Order add =addOrderList.get(position);
         holder.txtv1.setText(add.getId());
         holder.txtv2.setText(add.getName());
-        holder.txtv3.setText(add.getUrl());
+
         holder.txtv5.setText(String.valueOf(add.getPrice()));
         holder.txtv6.setText(String.valueOf(add.getQty()));
-
-
-        /*holder.orderDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final DatabaseReference dbRef= FirebaseDatabase.getInstance().getReference().child("Delivery Details").child(String.valueOf(add.getAddressId()));
-                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        dbRef.removeValue();
-                        Intent intent=new Intent(holder.orderDel.getContext(),ShowAddressDetails.class);
-                        holder.orderDel.getContext().startActivity(intent);
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-            }
-        });*/
 
     }
 
@@ -105,7 +82,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             super(itemView);
             txtv1 = itemView.findViewById(R.id.tv1);
             txtv2 = itemView.findViewById(R.id.tv2);
-            txtv3 = itemView.findViewById(R.id.tv3);
+
             txtv5 = itemView.findViewById(R.id.tv5);
             txtv6 = itemView.findViewById(R.id.tv6);
             orderUpdate =itemView.findViewById(R.id.orderUpdate);
