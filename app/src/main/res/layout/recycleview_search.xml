@@ -13,19 +13,19 @@
         android:layout_height="128dp">
 
         <ImageView
-            android:id="@+id/image_cat_search"
+            android:id="@+id/image_search"
             android:layout_width="166dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round" />
 
         <TextView
-            android:id="@+id/image_name_cat_search"
+            android:id="@+id/image_name_search"
             android:layout_width="170dp"
             android:layout_height="44dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@id/image_cat_search"
+            android:layout_toRightOf="@id/image_search"
             android:text="Canada"
             android:textColor="#000"
             android:textSize="17sp" />

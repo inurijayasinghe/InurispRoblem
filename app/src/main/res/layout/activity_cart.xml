@@ -18,7 +18,7 @@
         android:background="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/searching_text"
         android:layout_width="298dp"
         android:layout_height="35dp"
         android:layout_marginLeft="10dp"

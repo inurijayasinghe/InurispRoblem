@@ -80,6 +80,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
 
                 dbRef.setValue(cart);
+                holder.numberButton.getContext().startActivity(new Intent(holder.numberButton.getContext(),Cart.class));
 
 
 

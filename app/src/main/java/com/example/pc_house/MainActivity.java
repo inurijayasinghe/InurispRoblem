@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
     private List<Item> itemList;
     DatabaseReference dbRef;
     ImageView cart,profile,category;
+    Button searchBtn;
+    EditText searchText;
     Item item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,9 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
 
         cart=findViewById(R.id.cart);
         category=findViewById(R.id.categoryBtn);
+        searchText=findViewById(R.id.searching_text);
         profile=findViewById(R.id.btnProfile);
+        searchBtn=findViewById(R.id.search_button_main);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
@@ -90,6 +94,16 @@ public class MainActivity extends AppCompatActivity  implements  ItemAdapter.OnI
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),Category.class));
+            }
+        });
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              String msg=searchText.getText().toString();
+              Intent intent=new Intent(MainActivity.this,ShowSearchDetails.class);
+              intent.putExtra("msg",msg);
+              startActivity(intent);
             }
         });
 
