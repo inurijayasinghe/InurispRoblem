@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/addPay"
+            android:textColor="#708E0B"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -111,9 +112,10 @@
 
         <Button
             android:id="@+id/confirmAddPayment"
-            android:layout_width="389dp"
+            android:layout_width="345dp"
             android:layout_height="51dp"
             android:background="@drawable/custome_button"
+            android:textColor="#FFFFFF"
             android:text="@string/confiirmAdd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
