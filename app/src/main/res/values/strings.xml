@@ -36,7 +36,7 @@
     <string name="EditAdd">Edit Address Details</string>
     <string name="addPay">Add New Card</string>
     <string name="EditPay">Edit Card Details</string>
-    <string name="description1">Add Product</string>
+    <string name="description1">Add Product Details</string>
     <string name="show">Show</string>
     <string name="custName">Cardholder Name</string>
     <string name="cardNo">Card Number</string>
@@ -73,7 +73,7 @@
     <string name="ProuctDescription">Product Description</string>
     <string name="Price">Price</string>
     <string name="addNewProduct">Add new Product</string>
-    <string name="EditProduct">Edit Product</string>
+    <string name="EditProduct">Edit Product Details</string>
     <string name="description_text">Description</string>
     <string name="searchr">Search Result</string>
     <string name="EnterCustomerName">EnterCustomerName</string>
