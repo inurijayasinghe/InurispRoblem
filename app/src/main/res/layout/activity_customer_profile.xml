@@ -10,7 +10,7 @@
         android:id="@+id/rellay1"
         android:layout_width="match_parent"
         android:layout_height="198dp"
-        android:background="@drawable/grad"
+        android:background="@drawable/background"
         android:paddingBottom="20dp">
 
         <RelativeLayout
@@ -172,22 +172,29 @@
                     android:background="@color/grey" />
 
             </LinearLayout>
+
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="244dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/editProfile"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/EditProfile" />
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
+                    <Button
+                        android:id="@+id/editProfile"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+
+                        android:text="@string/EditProfile" />
 
 
                     <LinearLayout
@@ -196,40 +203,65 @@
                         android:orientation="vertical" />
 
 
-                <Button
-                    android:id="@+id/myOrdersBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/MyOrders" />
+                    <Button
+                        android:id="@+id/myOrdersBtn"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/MyOrders" />
 
-                <Button
-                    android:id="@+id/paymentDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/paymentdetails" />
+                    <Button
+                        android:id="@+id/paymentDetails"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/paymentdetails" />
 
-                <Button
-                    android:id="@+id/paymentHistory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/PaymentHistory" />
+                    <Button
+                        android:id="@+id/paymentHistory"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/PaymentHistory" />
 
-                <Button
-                    android:id="@+id/shippingDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/AddressDetails" />
+                    <Button
+                        android:id="@+id/shippingDetails"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/AddressDetails" />
 
-                <Button
-                    android:id="@+id/registerAsASeller"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Registerasaseller" />
+                    <Button
+                        android:id="@+id/registerAsASeller"
+                        style="@style/custButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/Registerasaseller" />
 
 
-            </LinearLayout>
+                </LinearLayout>
             </ScrollView>
 
 
