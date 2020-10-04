@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class CustomerProfile extends AppCompatActivity {
 
-    private Button paymentDetails, paymentHistory, shippingDetails, registerAsASeller, editProfile, logoutBtn, myOrders;
+    private Button paymentDetails, paymentHistory, shippingDetails, viewMyProducts, editProfile, logoutBtn, myOrders;
     private TextView  customerEmail,customerPhone,customerId, customerName;
 
     @SuppressLint("WrongViewCast")
@@ -35,7 +35,7 @@ public class CustomerProfile extends AppCompatActivity {
         paymentDetails =findViewById(R.id.paymentDetails);
         paymentHistory =findViewById(R.id.paymentHistory);
         shippingDetails =findViewById(R.id.shippingDetails);
-        registerAsASeller =findViewById(R.id.registerAsASeller);
+        viewMyProducts =findViewById(R.id.viewMyProducts);
         myOrders = findViewById(R.id.myOrdersBtn);
         customerEmail = findViewById(R.id.customerEmail);
         customerPhone = findViewById(R.id.customerPhone);
@@ -79,6 +79,13 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+        viewMyProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openViewMyProductDetails();
+            }
+        });
+
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +112,11 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void openViewMyProductDetails() {
+        Intent intent = new Intent(this, ShowProductDetals.class );
+        startActivity(intent);
     }
 
     private void openUserDetails() {

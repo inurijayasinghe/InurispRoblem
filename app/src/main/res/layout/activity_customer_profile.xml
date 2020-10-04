@@ -58,6 +58,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="13dp"
+            style="@style/custButtons"
             android:text="Log out" />
 
     </RelativeLayout>
@@ -250,7 +251,7 @@
                         android:text="@string/AddressDetails" />
 
                     <Button
-                        android:id="@+id/registerAsASeller"
+                        android:id="@+id/viewMyProducts"
                         style="@style/custButtons"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -258,7 +259,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/Registerasaseller" />
+                        android:text="@string/ViewMyProducts" />
 
 
                 </LinearLayout>
