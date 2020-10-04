@@ -1,7 +1,5 @@
 package com.example.pc_house;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class Item_Display extends AppCompatActivity {
     TextView title,price,qty,description;
     ImageView image;
@@ -93,7 +90,7 @@ public class Item_Display extends AppCompatActivity {
             public void onClick(View view) {
                 dbRef= FirebaseDatabase.getInstance().getReference().child("Cart").child(String.valueOf(fAuth.getCurrentUser().getUid()));
                 TheCart cart=new TheCart();
-                cart.setID(i1.getID());
+                cart.setID(String.valueOf(i1.getID()));
                 cart.setName(i1.getName());
                 cart.setPrice(i1.getPrice()*val1);
                 cart.setUrl(i1.getUrl());

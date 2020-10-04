@@ -61,7 +61,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         holder.productname.setText(prod.getProductName());
         holder.productcategory.setText(prod.getProductCategory());
-        holder.proddescription.setText(prod.getProductDescription());
+        holder.prodURL.setText(prod.getProductDescription());
         holder.pricer.setText(prod.getPrice());
 
         holder.productupdate.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +111,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        TextView productname,productcategory,proddescription,pricer;
+        TextView productname,productcategory,prodURL,pricer;
         ImageButton productupdate,productdelete;
 
 
@@ -119,7 +119,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super(itemView);
             productname = itemView.findViewById(R.id.productnameR);
             productcategory = itemView.findViewById(R.id.prodcategoryR);
-            proddescription = itemView.findViewById(R.id.proddescriptionR);
+            prodURL = itemView.findViewById(R.id.prodURLR);
             pricer = itemView.findViewById(R.id.priceR);
 
             productupdate=itemView.findViewById(R.id.productupdate);

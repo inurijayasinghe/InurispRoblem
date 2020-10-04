@@ -67,11 +67,11 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/proddescription"
+        android:id="@+id/prodURL"
         android:layout_width="360dp"
         android:layout_height="51dp"
         android:ems="10"
-        android:hint="@string/ProuctDescription"
+        android:hint="Product URL"
         android:background="@drawable/custome_input"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

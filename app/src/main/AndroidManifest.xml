@@ -31,14 +31,18 @@
         <activity
             android:name=".AddNewAddress"
             android:parentActivityName=".ShowAddressDetails" />
-        <activity android:name=".loging" />
-        <activity android:name=".Register" />
-        <activity android:name=".Entering">
+        <activity android:name=".loging" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Entering">
+
         </activity>
         <activity android:name=".ShowOrderDetails" />
         <activity android:name=".Item_Display" />
