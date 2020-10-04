@@ -1,6 +1,7 @@
 package com.example.pc_house;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,15 +44,16 @@ public class CategoryAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
             Glide.with(mContext).asBitmap().load(mImage.get(position)).into(holder.image);
             holder.imageName.setText(mImageNames.get(position));
             holder.parentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
+                Intent intent=new Intent(holder.parentLayout.getContext(),Category_view.class);
+                intent.putExtra("cat",mImageNames.get(position));
+                holder.parentLayout.getContext().startActivity(intent);
                 }
             });
 
